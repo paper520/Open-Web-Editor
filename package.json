@@ -1,0 +1,23 @@
+{
+  "name": "open-web-editor",
+  "version": "0.0.0-alpha",
+  "description": "🕮 An Editor Used on the Browser Side.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hai2007/Open-Web-Editor.git"
+  },
+  "keywords": [
+    "web",
+    "editor"
+  ],
+  "author": "hai2007",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hai2007/Open-Web-Editor/issues"
+  },
+  "homepage": "https://github.com/hai2007/Open-Web-Editor#readme"
+}
