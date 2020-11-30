@@ -1,4 +1,4 @@
-# Open Web Editor - 🕮 Web版本的可扩展代码编辑器
+# Open Web Editor - ✍️ Web版本的可扩展代码编辑器
 
 - 项目研发中，敬请期待！
 
