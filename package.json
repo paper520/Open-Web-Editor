@@ -5,12 +5,7 @@
   "main": "dist/open-web-editor.min.js",
   "scripts": {
     "start": "npm install && npm run build",
-    "build": "npm run build:init && npm run build:bundle && npm run build:babel && npm run build:uglifyjs && npm run build:end",
-    "build:init": "cuf --config ./cuf.config.js init",
-    "build:end": "cuf --config ./cuf.config.js end",
-    "build:bundle": "cuf --config ./cuf.config.js bundle",
-    "build:babel": "cuf --config ./cuf.config.js babel",
-    "build:uglifyjs": "cuf --config ./cuf.config.js uglifyjs"
+    "build": "cuf --config cuf.config.js init && cuf --config cuf.config.js bundle && cuf --config cuf.config.js babel && cuf --config cuf.config.js uglifyjs && cuf --config cuf.config.js end"
   },
   "repository": {
     "type": "git",
