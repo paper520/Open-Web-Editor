@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不可编辑界面 | 用例测试</title>
+    <script src="../dist/open-web-editor.js"></script>
+    <style>
+        div.owe {
+            width: 400px;
+            height: 300px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="owe1" class='owe'></div>
+
+    <script>
+
+        var owe1 = new OpenWebEditor({
+            el: document.getElementById('owe1'),
+            content: "不可编辑的编辑器\n输入内容",
+            readonly: true
+        });
+
+        console.log(owe1);
+
+    </script>
+
+</body>
+
+</html>
