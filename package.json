@@ -1,6 +1,6 @@
 {
   "name": "open-web-editor",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "✍️ An Editor Used on the Browser Side.",
   "main": "dist/open-web-editor.min.js",
   "scripts": {

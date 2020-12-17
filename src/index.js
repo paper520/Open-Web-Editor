@@ -1,7 +1,7 @@
 
 import xhtml from './xhtml';
 
-import { isElement, isString, isFunction } from '@hai2007/tool/type';
+import { isElement, isString, isFunction, isArray } from '@hai2007/tool/type';
 
 // 核心方法和工具方法
 
@@ -14,6 +14,10 @@ import diff from './edit-view/diff';
 
 import filterText from './edit-view/filter';
 
+// 内置着色器方法
+
+import innerShader from './shader/index';
+
 let owe = function (options) {
 
     if (!(this instanceof owe)) {
@@ -21,13 +25,13 @@ let owe = function (options) {
     }
 
     /**
-     * 
+     *
      * [格式化配置]
-     * 
+     *
      * 所有的配置校验和默认值设置等都应该在这里进行
      * 经过这里处理以后，后续不需要再进行校验了
      * 因此这里的内容的更改一定要慎重
-     * 
+     *
      */
 
     // 编辑器挂载点
@@ -64,7 +68,7 @@ let owe = function (options) {
         this._contentArray = isString(options.content) ? (this.$$filterText(options.content) + "").split("\n") : [""];
 
         // 着色方法
-        this.$shader = isFunction(options.shader) ? options.shader : shader;
+        this.$shader = isFunction(options.shader) ? options.shader : (isArray(options.shader) ? innerShader(...options.shader) : shader);
 
         // 格式化方法
         this.$format = isFunction(options.format) ? options.format : format;

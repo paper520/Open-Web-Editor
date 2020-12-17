@@ -147,6 +147,68 @@ owe.updated(callback);
 owe.input(content[, cursor, number]);
 ```
 
+## 内置着色器
+
+对于上面的选项```shader```除了传递一个着色器方法外，还可以传递一个数组，以使用内置的着色器方法进行着色：
+
+```js
+new OpenWebEditor({
+    ...
+    // lang是一个字符串，表示需要着色的语言
+    // colors可选，表示使用的色彩
+    // 此外，colors具体有多项，都可选，配置你希望修改的即可，其余自动使用默认值
+    shader:[lang,colors]
+    ...
+});
+```
+
+下面来列举出所有可选的语言：
+
+### html
+
+```js
+shader:['html',{
+    "text": "#000000",/*文本颜色*/
+    "annotation": "#6a9955",/*注释颜色*/
+    "insign": "#ffffff",/*符号颜色*/
+    "node": "#1e50b3",/*结点颜色*/
+    "attrKey": "#1e83b1",/*属性名称颜色*/
+    "attrValue": "#ac4c1e",/*属性值颜色*/
+    "css":{
+        // 查看后续css语言部分
+    },
+    "javascript":{
+        // 查看后续javascript语言部分
+    }
+}]
+```
+
+### css
+
+```js
+shader:['css',{
+    "annotation": "#6a9955",/*注释颜色*/
+    "insign": "#ffffff",/*符号颜色*/
+    "selector": "#1e50b3",/*选择器*/
+    "attrKey": "#1e83b1",/*属性名称颜色*/
+    "attrValue": "#ac4c1e"/*属性值颜色*/
+}]
+```
+
+### javascript
+
+```js
+shader:['javascript',{
+    "text": "#000000",/*文本颜色*/
+    "annotation": "#6a9955",/*注释颜色*/
+    "insign": "#ffffff",/*符号颜色*/
+    "key": "#ff0000",/*关键字颜色*/
+    "string": "#ac4c1e",/*字符串颜色*/
+    "funName": "#1e50b3",/*函数名称颜色*/
+    "execName": "#1e83b1"/*执行方法颜色*/
+}]
+```
+
 ## 联系我们
 
 - QQ: 2501482523

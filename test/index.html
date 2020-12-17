@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Open Web Editor | ✍️ An Editor Used on the Browser Side.</title>
-    <script src="./HTML_shader.js"></script>
     <script src="../dist/open-web-editor.js"></script>
     <style>
         body {
@@ -60,7 +59,30 @@
             tabSpace: 2,
 
             // 着色器
-            shader: HTML_shader,
+            shader: ['html', {
+                "text": "#000000",/*文本颜色*/
+                "annotation": "#6a9955",/*注释颜色*/
+                "insign": "#ffffff",/*符号颜色*/
+                "node": "#1e50b3",/*结点颜色*/
+                "attrKey": "#1e83b1",/*属性名称颜色*/
+                "attrValue": "#ac4c1e",/*属性值颜色*/
+                "css": {
+                    "annotation": "#6a9955",/*注释颜色*/
+                    "insign": "#ffffff",/*符号颜色*/
+                    "selector": "#1e50b3",/*选择器*/
+                    "attrKey": "#1e83b1",/*属性名称颜色*/
+                    "attrValue": "#ac4c1e"/*属性值颜色*/
+                },
+                "javascript": {
+                    "text": "#000000",/*文本颜色*/
+                    "annotation": "#6a9955",/*注释颜色*/
+                    "insign": "#ffffff",/*符号颜色*/
+                    "key": "#ff0000",/*关键字颜色*/
+                    "string": "#ac4c1e",/*字符串颜色*/
+                    "funName": "#1e50b3",/*函数名称颜色*/
+                    "execName": "#1e83b1"/*执行方法颜色*/
+                }
+            }],
 
             // 初始化文本
             content: "<html lang=\"zh-cn\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Example | Web Studio Code</title>\n    <style>\n        /*css样式*/\n        body {\n            margin: 0px;\n        }\n    </style>\n</head>\n<body>\n    <script>\n\n        /*js代码*/\n        function doit() {\n            console.log('你好，世界！');\n        }\n\n    \</script\>\n</body>\n</html>\n\n<!-- Developed by @hai2007 -->"
