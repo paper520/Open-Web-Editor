@@ -5,7 +5,7 @@
   <a href="https://packagephobia.now.sh/result?p=open-web-editor"><img src="https://packagephobia.now.sh/badge?p=open-web-editor" alt="install size"></a>
   <a href="https://www.jsdelivr.com/package/npm/open-web-editor"><img src="https://data.jsdelivr.com/v1/package/npm/open-web-editor/badge" alt="CDN"></a>
   <a href="https://www.npmjs.com/package/open-web-editor"><img src="https://img.shields.io/npm/v/open-web-editor.svg" alt="Version"></a>
-  <a href="https://github.com/Open-Web-Editor/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/open-web-editor.svg" alt="License"></a>
+  <a href="https://github.com/hai2007/Open-Web-Editor/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/open-web-editor.svg" alt="License"></a>
 </p>
 
 > 温馨提示：使用过程中，你可以查看 [版本历史](./CHANGELOG) 来了解是否需要升级！
