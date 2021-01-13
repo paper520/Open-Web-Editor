@@ -1,4 +1,4 @@
-import keyString from './keyString';
+import getKeyString from '@hai2007/tool/getKeyString';
 import { isFunction } from '@hai2007/tool/type';
 import xhtml from '../xhtml';
 import { getInputMessage } from './tool';
@@ -199,7 +199,7 @@ export default function () {
     // 处理键盘控制
     xhtml.bind(this._el, 'keydown', event => {
 
-        let keyStringCode = keyString(event);
+        let keyStringCode = getKeyString(event);
 
         // 辅助输入前置拦截
 

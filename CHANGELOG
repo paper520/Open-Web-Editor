@@ -8,3 +8,7 @@ v0.2.0:
     date:2020-12-17
     changes:
       - 添加内置着色器功能：html+css+javascript
+v0.2.1:
+    date:2021-01-13
+    changes:
+      - 修复编辑器第一行编辑页面更新错误

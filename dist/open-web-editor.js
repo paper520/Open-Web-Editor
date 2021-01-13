@@ -2,14 +2,14 @@
 * Open Web Editor - ✍️ An Editor Used on the Browser Side.
 * git+https://github.com/hai2007/Open-Web-Editor.git
 *
-* author hai2007
+* author 你好2007
 *
-* version 0.2.0
+* version 0.2.1
 *
-* Copyright (c) 2020 hai2007 走一步，再走一步。
+* Copyright (c) 2020-2021 hai2007 走一步，再走一步。
 * Released under the MIT license
 *
-* Date:Thu Dec 17 2020 13:00:09 GMT+0800 (GMT+08:00)
+* Date:Wed Jan 13 2021 16:57:14 GMT+0800 (GMT+08:00)
 */
 
 "use strict";
@@ -194,10 +194,16 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
       return null;
     },
-    // 追加结点
+    // 追加结点(内部结尾)
     "appendTo": function appendTo(el, template) {
       var node = isElement(template) ? template : this.toNode(template);
       el.appendChild(node);
+      return node;
+    },
+    // 追加结点(内部开头)
+    "prependTo": function prependTo(el, template) {
+      var node = isElement(template) ? template : this.toNode(template);
+      el.insertBefore(node, el.childNodes[0]);
       return node;
     },
     // 删除结点
@@ -454,9 +460,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           xhtml.after(lineDoms[this.__diff.beginNum - 1], this.$$toTemplate(this.__formatData[_i], _i, this._noLineNumber));
         }
       } else {
-        // 如果开头没有结点保留，为了简单，我们直接采用append方法追加
+        // 如果开头没有结点保留，为了简单，我们直接采用prependTo方法追加
         for (var _i2 = 0; _i2 < this.__formatData.length - this.__diff.endNum; _i2++) {
-          xhtml.appendTo(this.__showDOM, this.$$toTemplate(this.__formatData[_i2], _i2, this._noLineNumber));
+          xhtml.prependTo(this.__showDOM, this.$$toTemplate(this.__formatData[_i2], _i2, this._noLineNumber));
         }
       } // 更新行号
 
@@ -604,7 +610,17 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     this.__leftNum = this.__cursor1.leftNum = this.__cursor2.leftNum = beginCursor.leftNum;
     this.__lineNum = this.__cursor1.lineNum = this.__cursor2.lineNum = beginCursor.lineNum;
     this.$$cancelSelect();
-  } // 字典表
+  }
+  /*!
+   * 💡 - 获取键盘此时按下的键的组合结果
+   * https://github.com/hai2007/tool.js/blob/master/getKeyString.js
+   *
+   * author hai2007 < https://hai2007.gitee.io/sweethome >
+   *
+   * Copyright (c) 2021-present hai2007 走一步，再走一步。
+   * Released under the MIT license
+   */
+  // 字典表
 
 
   var dictionary = (_dictionary = {
@@ -696,7 +712,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
    * 返回键盘此时按下的键的组合结果
    */
 
-  function keyString(event) {
+  function getKeyString(event) {
     event = event || window.event;
     var keycode = event.keyCode || event.which;
     var key = dictionary[keycode] || keycode;
@@ -894,7 +910,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     }); // 处理键盘控制
 
     xhtml.bind(this._el, 'keydown', function (event) {
-      var keyStringCode = keyString(event); // 辅助输入前置拦截
+      var keyStringCode = getKeyString(event); // 辅助输入前置拦截
 
       if (_this5.__helpInputDOM.innerHTML != '') {
         var __helpInputEvent = _this5.__helpInputEvent[keyStringCode];
