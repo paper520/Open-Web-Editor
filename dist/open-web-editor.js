@@ -4,12 +4,12 @@
 *
 * author 你好2007
 *
-* version 0.2.1
+* version 0.2.2
 *
 * Copyright (c) 2020-2021 hai2007 走一步，再走一步。
 * Released under the MIT license
 *
-* Date:Wed Jan 13 2021 16:57:14 GMT+0800 (GMT+08:00)
+* Date:Wed Jan 13 2021 22:57:00 GMT+0800 (GMT+08:00)
 */
 
 "use strict";
@@ -461,7 +461,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         }
       } else {
         // 如果开头没有结点保留，为了简单，我们直接采用prependTo方法追加
-        for (var _i2 = 0; _i2 < this.__formatData.length - this.__diff.endNum; _i2++) {
+        for (var _i2 = this.__formatData.length - this.__diff.endNum - 1; _i2 >= 0; _i2--) {
           xhtml.prependTo(this.__showDOM, this.$$toTemplate(this.__formatData[_i2], _i2, this._noLineNumber));
         }
       } // 更新行号
