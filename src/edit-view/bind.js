@@ -196,10 +196,28 @@ export default function () {
         }
     });
 
+    // 记录此刻MAC电脑的Command是否按下
+    let macCommand = false;
+
+    xhtml.bind(this._el, 'keyup', event => {
+
+        let keyStringCode = getKeyString(event);
+
+        if (keyStringCode == 'command') macCommand = false;
+
+    });
+
     // 处理键盘控制
     xhtml.bind(this._el, 'keydown', event => {
 
         let keyStringCode = getKeyString(event);
+
+        if (keyStringCode == 'command') macCommand = true;
+
+        // 如果Command被按下，就需要补充ctrl以兼容MAC电脑
+        if (macCommand && ['a', 'c', 'x'].indexOf(keyStringCode) > -1) {
+            keyStringCode = "ctrl+" + keyStringCode;
+        }
 
         // 辅助输入前置拦截
 

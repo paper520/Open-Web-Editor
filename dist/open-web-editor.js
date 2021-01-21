@@ -4,12 +4,12 @@
 *
 * author 你好2007
 *
-* version 0.2.2
+* version 0.2.3
 *
 * Copyright (c) 2020-2021 hai2007 走一步，再走一步。
 * Released under the MIT license
 *
-* Date:Wed Jan 13 2021 22:57:00 GMT+0800 (GMT+08:00)
+* Date:Thu Jan 21 2021 10:39:05 GMT+0800 (GMT+08:00)
 */
 
 "use strict";
@@ -907,10 +907,22 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
         if (_this5.$input != null) _this5.__helpInputEvent = _this5.$input(_this5.__helpInputDOM, getInputMessage(_this5), _this5._contentArray) || {};
       }
+    }); // 记录此刻MAC电脑的Command是否按下
+
+    var macCommand = false;
+    xhtml.bind(this._el, 'keyup', function (event) {
+      var keyStringCode = getKeyString(event);
+      if (keyStringCode == 'command') macCommand = false;
     }); // 处理键盘控制
 
     xhtml.bind(this._el, 'keydown', function (event) {
-      var keyStringCode = getKeyString(event); // 辅助输入前置拦截
+      var keyStringCode = getKeyString(event);
+      if (keyStringCode == 'command') macCommand = true; // 如果Command被按下，就需要补充ctrl以兼容MAC电脑
+
+      if (macCommand && ['a', 'c', 'x'].indexOf(keyStringCode) > -1) {
+        keyStringCode = "ctrl+" + keyStringCode;
+      } // 辅助输入前置拦截
+
 
       if (_this5.__helpInputDOM.innerHTML != '') {
         var __helpInputEvent = _this5.__helpInputEvent[keyStringCode];
