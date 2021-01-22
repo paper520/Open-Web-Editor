@@ -20,3 +20,7 @@ v0.2.3:
     date:2021-01-21
     changes:
       - 支持MAC电脑的 command+ 操作
+v0.3.0:
+    date:2021-01-23
+    changes:
+      - 新增 this.copy() 复制当前编辑器代码到电脑剪切板功能

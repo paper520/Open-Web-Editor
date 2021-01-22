@@ -1,4 +1,4 @@
-import { isElement } from '@hai2007/tool/type';
+import { isElement, isFunction } from '@hai2007/tool/type';
 
 export default {
 
@@ -124,7 +124,7 @@ export default {
     },
 
     // 复制到剪切板
-    "copy": function (text) {
+    "copy": function (text, callback, errorback) {
 
         let el = this.appendTo(document.body, '<textarea>' + text + '</textarea>');
 
@@ -134,13 +134,12 @@ export default {
             let result = window.document.execCommand("copy", false, null);
 
             if (result) {
-                console.log('已经复制到剪切板！');
+                if (isFunction(callback)) callback();
             } else {
-                console.log('复制到剪切板失败！');
+                if (isFunction(errorback)) errorback();
             }
         } catch (e) {
-            console.error(e);
-            console.log('复制到剪切板失败！');
+            if (isFunction(errorback)) errorback(e);
         }
 
         document.body.removeChild(el);

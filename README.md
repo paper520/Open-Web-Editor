@@ -134,6 +134,13 @@ owe.format();
 owe.valueOf();
 ```
 
+- 复制当前编辑器代码到电脑剪切板
+
+```js
+// 成功回调和错误回调都非必输
+owe.copy(callback,errorback);
+```
+
 - 编辑器管理的文本发生改变后会主动触发callback方法
 
 ```js

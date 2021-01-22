@@ -4,12 +4,12 @@
 *
 * author 你好2007
 *
-* version 0.2.3
+* version 0.3.0
 *
 * Copyright (c) 2020-2021 hai2007 走一步，再走一步。
 * Released under the MIT license
 *
-* Date:Thu Jan 21 2021 10:39:05 GMT+0800 (GMT+08:00)
+* Date:Sat Jan 23 2021 02:09:11 GMT+0800 (GMT+08:00)
 */
 
 "use strict";
@@ -242,7 +242,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       return temp;
     },
     // 复制到剪切板
-    "copy": function copy(text) {
+    "copy": function copy(text, callback, errorback) {
       var el = this.appendTo(document.body, '<textarea>' + text + '</textarea>'); // 执行复制
 
       el.select();
@@ -251,13 +251,12 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         var result = window.document.execCommand("copy", false, null);
 
         if (result) {
-          console.log('已经复制到剪切板！');
+          if (isFunction(callback)) callback();
         } else {
-          console.log('复制到剪切板失败！');
+          if (isFunction(errorback)) errorback();
         }
       } catch (e) {
-        console.error(e);
-        console.log('复制到剪切板失败！');
+        if (isFunction(errorback)) errorback(e);
       }
 
       document.body.removeChild(el);
@@ -1980,6 +1979,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
       _this6.$$initView();
+    }; // 复制当前编辑器代码到电脑剪切板
+
+
+    this.copy = function (callback, errorback) {
+      xhtml.copy(_this6.valueOf(), callback, errorback);
     };
   }; // 挂载辅助方法
 

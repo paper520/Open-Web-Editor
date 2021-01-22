@@ -157,6 +157,11 @@ let owe = function (options) {
 
     };
 
+    // 复制当前编辑器代码到电脑剪切板
+    this.copy = (callback, errorback) => {
+        xhtml.copy(this.valueOf(), callback, errorback);
+    };
+
 };
 
 // 挂载辅助方法
